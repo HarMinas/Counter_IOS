@@ -9,17 +9,41 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var countB: UILabel!
+    @IBOutlet weak var countA: UILabel!
+    var countANum: Int = 0
+    var countBNum: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+      updateUI()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func addToA(sender: UIButton){
+        countANum += 1
+        updateUI()
+        
     }
-
-
+    
+    
+    @IBAction func addToB(sender: UIButton){
+        countBNum += 1
+        updateUI()
+    }
+    
+    
+    @IBAction func reset(sender: UIButton){
+        countANum = 0
+        countBNum = 0
+        updateUI()
+    }
+    
+    func updateUI(){
+        countA.text? = "\(countANum)"
+        countB.text? = "\(countBNum)"
+    }
+ 
 }
 
